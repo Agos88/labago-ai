@@ -1,20 +1,18 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>Le regole di Renato</title>
-<meta name="description" content="Cinque regole per usare l'AI in ufficio, cosa sapere prima di usare un chatbot, il foglio da appendere e quattro domande da un minuto, più una facoltativa. AI nel pubblico, episodio 1.">
+<meta name="description" content="Cinque regole per usare l'AI in ufficio, il foglio da appendere in PDF e quattro domande per scegliere il prossimo episodio. AI nel pubblico, episodio 1.">
 <link rel="icon" href="data:,">
 <style>
   :root {
-    --carta: #fbfaf6;
-    --inchiostro: #141414;
-    --grigio: #4a4a48;
-    --riga: #141414;
-    --accento: #b42318;      /* rosso penna: unico colore, 6,3:1 su --carta */
-    --accento-testo: #ffffff;
+    --carta: #f1ebdd;        /* carta crema delle slide risograph */
+    --inchiostro: #1d2330;   /* nero-blu */
+    --rosso: #b42318;        /* secondo inchiostro */
+    --tenue: #4a4d55;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -22,208 +20,80 @@
     margin: 0;
     background: var(--carta);
     color: var(--inchiostro);
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.55;
-  }
-  .pagina {
-    max-width: 40rem;
-    margin: 0 auto;
-    padding: 24px 16px 40px;
-  }
-  h1, h2, .titolo-mano {
     font-family: Georgia, "Times New Roman", serif;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    font-size: 1.125rem;     /* 18 px: un solo corpo per tutto il testo */
+    line-height: 1.6;
   }
-  h1 { font-size: 1.85rem; margin: 0.2em 0 0.5em; }
-  h2 { font-size: 1.4rem; margin: 0 0 0.6em; }
+  .pagina { max-width: 36rem; margin: 0 auto; padding: 20px 18px 48px; }
+  h1, h2 { line-height: 1.2; font-weight: 700; }
+  h1 { font-size: 1.9rem; margin: 0 0 0.7em; }
+  h2 { font-size: 1.35rem; margin: 1.8em 0 0.5em; }
   p { margin: 0 0 1em; }
-  a { color: var(--inchiostro); text-underline-offset: 3px; }
-  a:focus-visible, .bottone:focus-visible {
-    outline: 3px solid var(--accento);
-    outline-offset: 3px;
-  }
+  a { color: var(--inchiostro); text-underline-offset: 3px; overflow-wrap: anywhere; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--rosso); outline-offset: 3px; }
 
-  /* Riquadro del disegno */
-  .vignetta {
-    margin: 0 0 20px;
-  }
-  .vignetta svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    background: #f1ebdd;     /* carta delle slide risograph */
-  }
-  .occhiello {
-    margin: 0;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--grigio);
-  }
+  figure { margin: 0 0 24px; }
+  figure svg { display: block; width: 100%; height: auto; }
 
-  /* Voce di Renato */
-  .battuta {
-    margin: 0 0 12px;
-    padding: 16px 18px;
-    border: 2px solid var(--riga);
-    border-radius: 18px 16px 20px 6px;
-    background: #ffffff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.1rem;
-  }
-  .battuta p { margin: 0; }
-  .battuta footer { margin-top: 6px; font-size: 0.9rem; color: var(--grigio); font-family: system-ui, sans-serif; }
-  .nota-caso { font-size: 0.95rem; color: var(--grigio); }
-
-  section { margin-top: 36px; padding-top: 28px; border-top: 2px solid var(--riga); }
-
-  /* Regole */
-  .regole {
-    list-style: none;
-    counter-reset: regola;
-    margin: 0 0 16px;
-    padding: 0;
-  }
-  .regole li {
-    counter-increment: regola;
-    position: relative;
-    padding: 12px 0 12px 2.6rem;
-    border-bottom: 1px dashed var(--riga);
-  }
-  .regole li::before {
-    content: counter(regola) ".";
-    position: absolute;
-    left: 0;
-    top: 12px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-  }
-  .simbolo {
-    display: inline-block;
-    min-width: 1.4em;
-    margin-left: 0.3em;
-    font-weight: 700;
-    text-align: center;
-  }
+  ol { margin: 0 0 1em; padding-left: 1.6em; }
+  li { margin-bottom: 0.7em; padding-left: 0.2em; }
+  li::marker { font-weight: 700; }
+  .segno { color: var(--rosso); font-weight: 700; font-family: "DejaVu Sans", system-ui, sans-serif; }
   .vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-  .base { display: block; margin-top: 2px; font-size: 0.88rem; color: var(--grigio); }
-  .legenda { font-size: 0.95rem; color: var(--grigio); }
 
-  .avviso {
-    margin: 20px 0 0;
-    padding: 16px 18px;
-    border: 2px solid var(--riga);
-    border-left-width: 8px;
-    background: #ffffff;
-  }
-  .avviso h3 {
-    margin: 0 0 6px;
-    font-size: 1.05rem;
-    font-family: Georgia, "Times New Roman", serif;
-  }
-  .avviso p { margin: 0 0 0.6em; font-size: 0.97rem; }
-  .avviso p:last-child { margin-bottom: 0; }
-
-  /* Cosa sapere prima di usare un chatbot */
-  h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; line-height: 1.25; margin: 30px 0 10px; }
-  .chiave {
-    margin: 0 0 16px;
-    padding: 2px 0 2px 14px;
-    border-left: 6px solid var(--accento);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.08rem;
-  }
-  .fornitore { margin: 0 0 14px; padding: 14px 16px; border: 2px solid var(--riga); background: #ffffff; }
-  .fornitore h4 { margin: 0 0 8px; font-size: 1.05rem; }
-  .fornitore dl { margin: 0; }
-  .fornitore dt { font-weight: 700; font-size: 0.95rem; margin-top: 8px; }
-  .fornitore dd { margin: 2px 0 0; font-size: 0.97rem; }
-  .fornitore .uguale { background: #fbeae7; padding: 2px 6px; margin-left: -6px; margin-right: -6px; }
-  .fornitore .attenzione { margin: 0 0 8px; font-size: 0.92rem; padding: 6px 10px; border: 1px dashed var(--riga); }
-  .fonti-forn { margin: 10px 0 0; padding-top: 8px; border-top: 1px dashed var(--riga); font-size: 0.88rem; color: var(--grigio); overflow-wrap: anywhere; }
-  .fonti-forn a { color: var(--grigio); }
-  .norme { list-style: none; margin: 0; padding: 0; }
-  .norme li { padding: 12px 0; border-bottom: 1px dashed var(--riga); overflow-wrap: anywhere; }
-  .etichetta {
-    display: inline-block; margin-right: 6px; padding: 0 8px;
-    border: 1.5px solid var(--inchiostro); border-radius: 12px;
-    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
-  }
-  .etichetta.norma { background: var(--inchiostro); color: #ffffff; }
-  .norme .link { display: block; margin-top: 4px; font-size: 0.92rem; }
-  .caso dt { font-weight: 700; margin-top: 14px; }
-  .caso dd { margin: 4px 0 0; }
-  .caso .norma-dd { padding-left: 12px; border-left: 4px solid var(--inchiostro); }
-
-  /* Bottoni */
   .bottone {
     display: inline-block;
     min-height: 48px;
     padding: 12px 22px;
     border: 2px solid var(--inchiostro);
     border-radius: 6px 10px 6px 12px;
-    background: var(--accento);
-    color: var(--accento-testo);
+    background: var(--rosso);
+    color: #ffffff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     font-weight: 700;
     font-size: 1.05rem;
     text-decoration: none;
     box-shadow: 3px 3px 0 var(--inchiostro);
   }
   .bottone:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--inchiostro); }
-  .bottone:active { transform: translate(3px, 3px); box-shadow: none; }
+  .bottone:focus-visible { outline: 3px solid var(--inchiostro); outline-offset: 3px; }
 
-  /* Domande */
-  .domande { margin: 20px 0 0; padding-left: 1.4rem; }
-  .domande li { margin-bottom: 12px; }
-  .domande li::marker { font-weight: 700; }
-  .opzioni { display: block; font-size: 0.92rem; color: var(--grigio); }
-  .anteprima {
-    margin: 22px 0 0;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--grigio);
+  /* Approfondimenti chiusi: solo una riga sopra, nessun riquadro */
+  details { border-top: 1px solid var(--inchiostro); }
+  details:last-of-type { border-bottom: 1px solid var(--inchiostro); }
+  .domande { margin: 1.6em 0 0; }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 14px 2rem 14px 0;
+    position: relative;
+    font-weight: 700;
   }
-  .privacy {
-    margin-top: 16px;
-    padding: 12px 0 0;
-    border-top: 1px dashed var(--riga);
-    font-weight: 600;
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    position: absolute; right: 4px; top: 10px;
+    color: var(--rosso); font-size: 1.5rem; line-height: 1.2; font-family: system-ui, sans-serif;
   }
+  details[open] summary::after { content: "\2212"; }
+  details > p:last-child { margin-bottom: 1.2em; }
 
-  /* Piede */
-  .piede {
-    margin-top: 44px;
-    padding-top: 22px;
-    border-top: 2px solid var(--riga);
-    font-size: 0.92rem;
-    color: var(--grigio);
-  }
-  .piede .firma { color: var(--inchiostro); font-weight: 700; font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; }
-  .piede h2 { font-size: 1rem; margin: 18px 0 6px; color: var(--inchiostro); }
-  .piede ul { margin: 0 0 10px; padding-left: 1.1rem; }
-  .piede li { margin-bottom: 6px; overflow-wrap: anywhere; }
-  .piede a { color: var(--grigio); }
+  .piede { margin-top: 3em; color: var(--tenue); font-size: 1rem; }
 
   @media (min-width: 560px) {
-    body { font-size: 1.125rem; }
+    body { font-size: 1.1875rem; }
     .pagina { padding-top: 40px; }
     h1 { font-size: 2.3rem; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .bottone, .bottone:hover, .bottone:active { transform: none; }
+    .bottone, .bottone:hover { transform: none; }
   }
 </style>
 </head>
 <body>
 <main class="pagina">
 
-  <header>
-    <figure class="vignetta">
+  <figure>
 <svg role="img" aria-labelledby="renato-titolo" class="riso-pagina" viewBox="0 0 1080 640">
 <title id="renato-titolo">Renato, testa quasi calva con un ricciolo, occhiali tondi e badge al collo, beve dalla sua tazza scheggiata alla scrivania e guarda la bacheca con il foglio delle regole. Disegno a due inchiostri, nero-blu e rosso, su carta crema.</title>
 <style>
@@ -401,192 +271,62 @@
     </g>
   </g></g></g>
 <rect width="1080" height="640" filter="url(#riso-carta)" class="stampa" opacity=".26"/></svg>
-    </figure>
+  </figure>
 
-    <p class="occhiello">AI nel pubblico · episodio 1</p>
-    <h1>Il dipendente e il suo abbonamento ChatGPT</h1>
+  <h1>Il dipendente e il suo abbonamento ChatGPT</h1>
 
-    <blockquote class="battuta">
-      <p>«Faccio io, faccio prima. Queste sono le regole che avrei voluto trovare in bacheca il primo giorno.»</p>
-      <footer>Renato, istruttore amministrativo</footer>
-    </blockquote>
-    <p class="nota-caso">Renato non esiste. Il suo caso è costruito sul modello di lavori reali.</p>
-  </header>
+  <p>Se arrivi dal carosello di Renato, questa è la scheda che ti avevo promesso. Renato è inventato, ma il caso è costruito sul modello di lavori reali: lavora in un piccolo ente, si paga da solo un abbonamento a un chatbot e ci scrive le risposte. In ufficio nessuno aveva ancora scelto uno strumento o scritto una regola, e lui si è arrangiato.</p>
 
-  <section aria-labelledby="regole-titolo">
-    <h2 id="regole-titolo">Come usiamo l'AI in questo ufficio</h2>
-    <p>Cinque righe da appendere in bacheca. Il simbolo accanto a ogni regola dice da dove viene.</p>
+  <h2>Le cinque regole</h2>
+  <p>Le ho scritte pensando a un ente pubblico. In una piccola impresa leggi «azienda» al posto di «ente» e «clienti» al posto di «cittadini»: l'adattamento è mio. Delle norme citate sotto, la legge 132/2025 riguarda solo la pubblica amministrazione e l'articolo 4 dell'AI Act dipende da come usi l'AI.</p>
+  <ol>
+    <li>Per lavoro si usano gli strumenti scelti dall'ente, non gli account personali.&nbsp;<span class="segno" aria-hidden="true">✱</span><span class="vh">(suggerimento)</span></li>
+    <li>I dati di cittadini e colleghi non si incollano in un chatbot che l'ente non ha autorizzato.&nbsp;<span class="segno" aria-hidden="true">✱</span><span class="vh">(suggerimento)</span></li>
+    <li>L'AI può scrivere la bozza, ma chi la firma la controlla e ne risponde.&nbsp;<span class="segno" aria-hidden="true">§</span><span class="vh">(lo dice una norma)</span></li>
+    <li>Se un testo nasce con l'AI, chi lo firma lo dice al responsabile.&nbsp;<span class="segno" aria-hidden="true">✱</span><span class="vh">(suggerimento)</span></li>
+    <li>L'ente prende misure per formare chi usa l'AI, per esempio con un corso breve.&nbsp;<span class="segno" aria-hidden="true">§</span><span class="vh">(lo dice una norma)</span></li>
+  </ol>
+  <p><span class="segno">§</span> vuol dire che lo dice una norma, <span class="segno">✱</span> che è un mio suggerimento. La 3, come obbligo di legge, riguarda la pubblica amministrazione: in un'azienda privata è buona prassi.</p>
+  <p>Non è un parere legale. Prima di adottarle, falle leggere a chi nel tuo ufficio segue la parte legale.</p>
 
-    <ol class="regole">
-      <li>Si usano gli strumenti scelti dall'ente, non gli account personali.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></li>
-      <li>I dati di cittadini e colleghi non vanno in un chatbot che l'ente non ha autorizzato.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></li>
-      <li>L'AI prepara la bozza. La persona controlla, firma e ne risponde.<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span>
-        <span class="base">Legge 132/2025, art. 14: dei provvedimenti risponde la persona. La regola lo estende a ogni testo: quella parte è un suggerimento. Questo § vale per la pubblica amministrazione: per un'azienda privata è buona prassi, non obbligo.</span></li>
-      <li>Quando un testo nasce con l'AI, chi lo firma lo dice al responsabile.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></li>
-      <li>L'ente prende misure per formare chi usa l'AI, anche con corsi brevi.<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span>
-        <span class="base">AI Act, art. 4: fornitori e utilizzatori professionali di sistemi di AI (deployer) adottano misure per sostenere l'alfabetizzazione del personale. Legge 132/2025, art. 14, c. 3: misure formative nella pubblica amministrazione. Le norme chiedono misure; i corsi brevi sono un esempio nostro.</span></li>
-    </ol>
+  <h2>Il foglio da appendere</h2>
+  <p>Nel PDF le regole sono pronte da stampare, con lo spazio per scrivere a mano lo strumento scelto e il referente. Sulla seconda pagina c'è il dettaglio con le fonti: le norme e, chatbot per chatbot, cosa succede ai dati che ci scrivi.</p>
+  <p><a class="bottone" href="scheda-come-usiamo-l-ai.pdf" type="application/pdf" download>Scarica il PDF (2 pagine)</a></p>
 
-    <p class="legenda">§ = lo dice una norma (fonti in fondo alla pagina).<br>✱ = suggerimento.</p>
+  <div class="domande">
+    <details>
+      <summary>Se pago l'abbonamento, i miei dati non vengono usati per addestrare il modello?</summary>
+      <p>Non per forza. Con Claude e Gemini il piano personale a pagamento segue le regole di quello gratuito, e per ChatGPT sembra lo stesso (con riserva, vedi sotto): se le chat servono ad addestrare il modello dipende da un'impostazione, e non ho trovato scritto se parte accesa o spenta. Va controllata a mano.</p>
+      <p>Copilot fa eccezione: risulta che con Microsoft 365 Personal e Family le conversazioni restano fuori dall'addestramento. Di recente però è uscita una nuova app Copilot, e le pagine che ho letto riguardano quella di prima.</p>
+      <p>Le garanzie scritte arrivano con i piani aziendali, e non tutte con ogni fornitore. Per Claude, per esempio, non è documentata un'opzione per tenere i dati in Europa: stanno negli Stati Uniti.</p>
+      <p>Su ChatGPT c'è un limite in più: le pagine di OpenAI non mi si sono aperte, e quello che scrivo viene da estratti di ricerca dell'8 novembre 2026. Va verificato sul loro sito.</p>
+      <p>Le condizioni cambiano: controlla quelle del tuo piano prima di usarlo con dati dell'ufficio. E qualunque piano tu abbia, in un account personale i dati di cittadini e colleghi non si incollano.&nbsp;<span class="segno" aria-hidden="true">✱</span><span class="vh">(suggerimento)</span></p>
+      <p>La tabella completa, con i link alle pagine dei fornitori (lette l'8 novembre 2026, tranne quelle di OpenAI, che non si sono aperte), è sulla seconda pagina del PDF.</p>
+    </details>
 
-    <aside class="avviso" aria-labelledby="avviso-titolo">
-      <h3 id="avviso-titolo">Non è un parere legale</h3>
-      <p>Sono regole per cominciare a parlarne in ufficio. Le norme sono riassunte e citate in fondo alla pagina: prima di adottare queste regole falle vedere a chi segue la parte legale.</p>
-      <p>Su AgID: non risultano linee guida sull'AI adottate in via definitiva (da verificare).</p>
-    </aside>
-  </section>
+    <details>
+      <summary>Quali leggi dicono queste cose?</summary>
+      <p>Le regole con <span class="segno">§</span> vengono da due testi. L'AI Act, all'articolo 4 (modificato nel 2026 dal regolamento UE 2026/1744), chiede a fornitori e utilizzatori professionali di sistemi di AI (deployer) di adottare misure per sostenere l'alfabetizzazione del personale, senza un livello fisso. Come farlo lo decide l'organizzazione: il corso breve è un esempio mio.</p>
+      <p>La legge 132/2025, all'articolo 14, riguarda la pubblica amministrazione: l'AI fa da supporto e dei provvedimenti risponde la persona. Al comma 3 chiede anche misure formative. La regola 3 allarga il principio a ogni testo, e quella parte è un mio suggerimento.</p>
+      <p>Su AgID: non risultano linee guida sull'AI adottate in via definitiva, ma è da verificare.</p>
+      <p>Se vuoi leggerli: <a href="https://ai-act-service-desk.ec.europa.eu/it/ai-act/article-4" rel="noopener noreferrer">l'articolo 4 dell'AI Act</a> sul sito della Commissione, <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32026R1744" rel="noopener noreferrer">il regolamento 2026/1744</a> su EUR-Lex, <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132~art14" rel="noopener noreferrer">l'articolo 14 della legge 132/2025</a> su Normattiva e <a href="https://www.agid.gov.it/it/ambiti-intervento/intelligenza-artificiale" rel="noopener noreferrer">la pagina di AgID sull'intelligenza artificiale</a>. Li ho consultati il 7 novembre 2026, AgID l'8 novembre. Nel PDF trovi anche il GDPR, il parere 28/2024 dell'EDPB e dove cercare i provvedimenti del Garante privacy.</p>
+    </details>
 
-  <section aria-labelledby="chatbot-titolo">
-    <h2 id="chatbot-titolo">Cosa sapere prima di usare un chatbot</h2>
-    <p>Renato l'abbonamento se l'è pagato da solo. Basta questo a proteggere i dati dell'ufficio? Qui sotto trovi cosa fanno dei dati i quattro chatbot, le norme da leggere e un esempio. La versione corta sta sulla seconda pagina del PDF. Pagine dei fornitori consultate l'8 novembre 2026, tranne quelle di OpenAI: non si sono aperte (HTTP 403) e i dati su ChatGPT vengono da estratti di ricerca dell'8 novembre 2026.</p>
+    <details>
+      <summary>Posso farmi scrivere una determina dall'AI?</summary>
+      <p>La bozza sì, se le chiedi lo schema con i segnaposto tra parentesi quadre: [oggetto], [importo], [ditta], [CIG]. I dati veri li metti tu, dopo, fuori dal chatbot. Dati personali, importi veri e offerte delle ditte non glieli dai.&nbsp;<span class="segno" aria-hidden="true">✱</span><span class="vh">(suggerimento)</span></p>
+      <p>Poi rileggi una voce alla volta, a partire da riferimenti normativi e importi: l'AI può sbagliare articoli e scadenze con la stessa sicurezza con cui scrive il resto. A Renato è successo.&nbsp;<span class="segno" aria-hidden="true">✱</span><span class="vh">(suggerimento)</span></p>
+      <p>Di una determina risponde la persona che la adotta, come dice la legge 132/2025 all'articolo 14 (vale per la pubblica amministrazione).&nbsp;<span class="segno" aria-hidden="true">§</span><span class="vh">(lo dice una norma)</span></p>
+      <p>Cosa deve contenere l'atto lo dice il d.lgs. 36/2023, agli articoli <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36~art15" rel="noopener noreferrer">15</a> e <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36~art17" rel="noopener noreferrer">17</a>: il riassunto è sulla seconda pagina del PDF (articoli consultati l'8 novembre 2026, da una sintesi di Normattiva), ma prima di usarlo leggi il testo su Normattiva. Non ho trovato indicazioni ufficiali di ANAC o AgID sull'uso di un chatbot per queste determine.</p>
+    </details>
+  </div>
 
-    <h3>I miei dati addestrano il modello? E dove stanno?</h3>
-    <p class="chiave">Con Claude, Gemini e ChatGPT pagare un piano personale non basta: conta l'impostazione. Le garanzie scritte (niente addestramento di default, niente revisori umani, dati in Europa) arrivano con i piani aziendali, e non tutte con ogni fornitore.</p>
+  <h2>Il prossimo episodio</h2>
+  <p>Sono quattro domande da un minuto su Google Form, più una facoltativa: dalle risposte scelgo la prossima situazione da raccontare.</p>
+  <p><a class="bottone" href="https://docs.google.com/forms/d/e/1FAIpQLSdXUHXTmxs5v6GLOo__9lquMa7mf4nJVeU9AWsi6fp__aFIDg/viewform">Rispondi alle domande</a></p>
+  <p>Il modulo non raccoglie email, nomi o altri dati: registra solo le risposte, che stanno su Google Forms, e le uso per scegliere i prossimi episodi. Titolare del trattamento è LABago, <a href="mailto:a.padula@labago.it">a.padula@labago.it</a>. Nella riga libera non scrivere nomi di persone o di enti; se ne finisce dentro uno per sbaglio, scrivimi e lo cancello.</p>
 
-    <div class="fornitore">
-      <h4>Claude</h4>
-      <dl>
-        <dt>Gratuito (Free)</dt>
-        <dd>I dati servono ad addestrare i modelli solo se è attiva «Model Improvement», nelle Privacy Settings. Nelle pagine lette non c'è scritto se parte attiva o spenta: controlla l'impostazione. Con l'addestramento attivo le chat, de-identificate, restano fino a 5 anni. Le chat in Incognito non si usano.</dd>
-        <dt class="uguale">A pagamento, personale (Pro, Max)</dt>
-        <dd class="uguale">Come il gratuito.</dd>
-        <dt>Aziendale (Team, Enterprise, API)</dt>
-        <dd>Di default i dati non servono ad addestrare i modelli. L'eccezione è il feedback con il pollice su o giù, che resta fino a 5 anni.</dd>
-        <dt>Dati in Europa</dt>
-        <dd>Nessuna opzione UE documentata: i dati sono archiviati negli USA.</dd>
-      </dl>
-      <p class="fonti-forn">Fonti: <a href="https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training" rel="noopener noreferrer">uso dei dati per il training</a> (pagina aggiornata il 16 marzo 2026); <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" rel="noopener noreferrer">uso dei dati per il training</a> (18 agosto 2026); <a href="https://privacy.claude.com/en/articles/7996890-where-are-your-servers-located-do-you-host-your-models-on-eu-servers" rel="noopener noreferrer">dove sono i server</a> (15 giugno 2026).</p>
-    </div>
-
-    <div class="fornitore">
-      <h4>Gemini</h4>
-      <dl>
-        <dt>Gratuito (account Google personale)</dt>
-        <dd>Con «Keep Activity» attiva, le attività possono servire ad addestrare i modelli. L'attività resta 18 mesi; si può portare a 3 o a 36. Alcune chat possono essere lette da revisori umani: vengono scollegate dall'account e restano fino a 3 anni. Default non dichiarato: controlla l'impostazione.</dd>
-        <dt class="uguale">A pagamento, personale (Google AI Pro)</dt>
-        <dd class="uguale">Come il gratuito.</dd>
-        <dt>Aziendale (Google Workspace)</dt>
-        <dd>Nessun addestramento sui dati del cliente senza il suo permesso. Chat e file non li rivede nessuna persona.</dd>
-        <dt>Dati in Europa, piani Workspace</dt>
-        <dd>Per prompt e risposte: data region «Europe», secondo l'edizione.</dd>
-      </dl>
-      <p class="fonti-forn">Fonti: <a href="https://support.google.com/gemini/answer/13594961" rel="noopener noreferrer">Privacy Hub di Gemini</a> (26 ottobre 2026); <a href="https://knowledge.workspace.google.com/admin/gemini/generative-ai-in-google-workspace-privacy-hub" rel="noopener noreferrer">Privacy Hub di Gemini in Workspace</a> (6 ottobre 2026).</p>
-    </div>
-
-    <div class="fornitore">
-      <h4>ChatGPT</h4>
-      <p class="attenzione">Da verificare sulla pagina OpenAI. Le pagine di aiuto non si sono aperte (HTTP 403): quello che segue, piani a pagamento compresi, viene da estratti di ricerca dell'8 novembre 2026. Per questo non ci sono cifre.</p>
-      <dl>
-        <dt>Gratuito (Free)</dt>
-        <dd>I dati possono servire a migliorare i modelli se è attiva «Improve the model for everyone», in Settings &gt; Data Controls. Controlla l'impostazione. Le Temporary Chat non si usano per l'addestramento.</dd>
-        <dt class="uguale">A pagamento, personale (Plus, Pro)</dt>
-        <dd class="uguale">Come il gratuito.</dd>
-        <dt>Aziendale (Business, Enterprise, Edu)</dt>
-        <dd>Di default i dati non servono ad addestrare i modelli.</dd>
-        <dt>Dati in Europa</dt>
-        <dd>Enterprise ed Edu: sì, per i nuovi workspace. Per i piani personali non risulta.</dd>
-      </dl>
-      <p class="fonti-forn">Fonti (pagine non aperte, HTTP 403; dati da estratti di ricerca dell'8 novembre 2026): <a href="https://help.openai.com/en/articles/7730893-chatgpt-privacy-practices" rel="noopener noreferrer">privacy di ChatGPT</a>; <a href="https://help.openai.com/en/articles/8983082-how-do-i-turn-off-model-training-to-stop-openai-training-models-on-my-conversations" rel="noopener noreferrer">come disattivare il training</a>; <a href="https://help.openai.com/en/articles/9903489-data-residency-and-inference-residency-for-chatgpt" rel="noopener noreferrer">residenza dei dati</a>.</p>
-    </div>
-
-    <div class="fornitore">
-      <h4>Copilot</h4>
-      <p class="attenzione">Di recente è uscita una nuova app Copilot: le pagine lette riguardano la versione precedente.</p>
-      <dl>
-        <dt>Gratuito, con account Microsoft personale</dt>
-        <dd>I dati si usano per l'addestramento, salvo opt-out da «Training on conversation activity» nelle impostazioni Privacy. Dalla revisione umana invece non ci si può togliere. Le conversazioni restano 18 mesi.</dd>
-        <dt class="uguale">A pagamento, personale (Microsoft 365 Personal e Family, Copilot nelle app)</dt>
-        <dd class="uguale">Esclusi dall'addestramento.</dd>
-        <dt>Aziendale (Microsoft 365 Copilot, account Entra ID)</dt>
-        <dd>I dati non servono ad addestrare i modelli di base e nessuna persona li rivede.</dd>
-        <dt>Dati in Europa, piano aziendale</dt>
-        <dd>Rientra nella EU Data Boundary. Per ora ne restano fuori i modelli di Anthropic.</dd>
-      </dl>
-      <p class="fonti-forn">Fonti: <a href="https://support.microsoft.com/en-us/microsoft-copilot/privacy-faq-for-microsoft-copilot" rel="noopener noreferrer">domande frequenti sulla privacy di Copilot</a> (pagina senza data); <a href="https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy" rel="noopener noreferrer">privacy di Microsoft 365 Copilot</a> (9 luglio 2026).</p>
-    </div>
-
-    <aside class="avviso" aria-label="Prima di usarlo in ufficio">
-      <p><strong>Le condizioni cambiano: controlla la pagina del fornitore prima di usarlo con dati dell'ufficio.</strong></p>
-      <p>E qualunque sia il piano, in un account personale i dati personali di cittadini e colleghi non si incollano.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></p>
-    </aside>
-
-    <h3>Le norme, e dove leggerle</h3>
-    <ul class="norme">
-      <li><span class="etichetta norma">Norma</span> <strong>AI Act</strong>, regolamento (UE) 2024/1689. In vigore dal 1° agosto 2024; l'art. 4, sull'alfabetizzazione, si applica dal 2 febbraio 2025. Riguarda fornitori e utilizzatori professionali (deployer).
-        <span class="link"><a href="https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32024R1689" rel="noopener noreferrer">Testo su EUR-Lex</a> · <a href="https://ai-act-service-desk.ec.europa.eu/it/ai-act/article-4" rel="noopener noreferrer">Art. 4 sull'AI Act Service Desk</a></span></li>
-      <li><span class="etichetta norma">Norma</span> <strong>Regolamento (UE) 2026/1744</strong> dell'8 luglio 2026, pubblicato nella Gazzetta ufficiale dell'UE il 24 luglio 2026. Modifica l'art. 4 dell'AI Act.
-        <span class="link"><a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32026R1744" rel="noopener noreferrer">Testo su EUR-Lex</a></span></li>
-      <li><span class="etichetta norma">Norma</span> <strong>GDPR</strong>, regolamento (UE) 2016/679. Gli articoli da cui partire: l'art. 5 (principi), l'art. 6 (liceità del trattamento), l'art. 28 (responsabile del trattamento) e l'art. 35 (valutazione d'impatto).
-        <span class="link"><a href="https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679" rel="noopener noreferrer">Testo su EUR-Lex</a></span></li>
-      <li><span class="etichetta norma">Norma</span> <strong>Legge 132/2025, art. 14</strong>: l'AI nella pubblica amministrazione. La persona mantiene il potere decisionale ed è l'unica responsabile dei provvedimenti.
-        <span class="link"><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132~art14" rel="noopener noreferrer">Art. 14 su Normattiva</a></span></li>
-      <li><span class="etichetta">Parere</span> <strong>EDPB, parere 28/2024</strong> su alcuni aspetti di protezione dei dati nei modelli di AI. È un parere del Comitato europeo per la protezione dei dati e non è vincolante.
-        <span class="link"><a href="https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects_en" rel="noopener noreferrer">Parere sul sito dell'EDPB</a></span></li>
-      <li><span class="etichetta">Linee guida</span> <strong>AgID</strong>: non risultano linee guida sull'AI adottate in via definitiva (da verificare). Bozze su sviluppo e acquisto in consultazione dal 12.3 all'11.4.2026, esito non noto.
-        <span class="link"><a href="https://www.agid.gov.it/it/ambiti-intervento/intelligenza-artificiale" rel="noopener noreferrer">Pagina AgID sull'intelligenza artificiale</a></span></li>
-      <li><span class="etichetta">Dove cercare</span> <strong>Garante privacy</strong>: i provvedimenti sull'AI si cercano sul sito.
-        <span class="link"><a href="https://www.garanteprivacy.it" rel="noopener noreferrer">garanteprivacy.it</a></span></li>
-    </ul>
-
-    <h3>Esempio: la bozza di una determina di affidamento</h3>
-    <p>L'esempio non contiene dati veri: niente ente, CIG, importi, soglie o nomi.</p>
-    <dl class="caso">
-      <dt>Cosa chiedere all'AI<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></dt>
-      <dd>La bozza dello schema della determina, o del capitolato, con i segnaposto tra parentesi quadre al posto dei dati: [oggetto], [importo], [ditta], [CIG]. I dati veri li inserisci tu, fuori dal chatbot.</dd>
-      <dt>Cosa non darle<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></dt>
-      <dd>Dati personali, importi reali, le offerte delle ditte.</dd>
-      <dt>Cosa controllare sempre, una voce alla volta<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></dt>
-      <dd>I riferimenti normativi e i numeri di articolo. Gli importi e le soglie. I requisiti dell'operatore e le ragioni della scelta. Sono esempi di cosa può andare storto, non un elenco preso dalla norma: l'AI può sbagliare riferimenti normativi e scadenze con la stessa sicurezza con cui scrive il resto, come succede a Renato quando ricontrolla la risposta prima di firmare.</dd>
-      <dt>Chi risponde<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span></dt>
-      <dd>La persona. Per la legge 132/2025, art. 14, mantiene il potere decisionale ed è l'unica responsabile del provvedimento.</dd>
-      <dt>Cosa dice la norma<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span></dt>
-      <dd class="norma-dd">D.lgs. 36/2023, art. 17, c. 1: la decisione di contrarre viene prima della procedura. Art. 17, c. 2: nell'affidamento diretto l'atto indica oggetto, importo, contraente, ragioni della scelta e requisiti. Art. 15, c. 3: il nome del RUP va indicato nel provvedimento di affidamento diretto.
-        <span class="link"><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36~art15" rel="noopener noreferrer">Art. 15 su Normattiva</a> · <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36~art17" rel="noopener noreferrer">Art. 17 su Normattiva</a> · <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132~art14" rel="noopener noreferrer">Legge 132/2025, art. 14</a></span></dd>
-    </dl>
-    <p>Non ho trovato indicazioni ufficiali di ANAC o AgID sull'uso di un chatbot per queste determine. Per ora resta quello che dice l'art. 14 sulla responsabilità della persona. Gli articoli qui sopra sono riassunti: prima di usarli, leggi il testo su Normattiva.</p>
-  </section>
-
-  <section aria-labelledby="pdf-titolo">
-    <h2 id="pdf-titolo">Il foglio da appendere</h2>
-    <p>Due pagine A4. Sulla prima ci sono le cinque regole, con uno spazio vuoto in fondo per scrivere a mano lo strumento autorizzato e il nome del referente. Sulla seconda, in breve, quello che hai letto qui sopra su dati, norme e determina.</p>
-    <p><a class="bottone" href="scheda-come-usiamo-l-ai.pdf" type="application/pdf" download>Scarica il PDF (2 pagine)</a></p>
-  </section>
-
-  <section aria-labelledby="domande-titolo">
-    <h2 id="domande-titolo">Quattro domande da un minuto, più una facoltativa</h2>
-    <p>Si risponde su Google Forms. Qui sotto le vedi in anteprima.</p>
-    <p><a class="bottone" href="https://docs.google.com/forms/d/e/1FAIpQLSdXUHXTmxs5v6GLOo__9lquMa7mf4nJVeU9AWsi6fp__aFIDg/viewform">Rispondi alle domande</a></p>
-
-    <p class="anteprima" id="anteprima-titolo">Le domande</p>
-    <ol class="domande" aria-labelledby="anteprima-titolo">
-      <li>Dove lavori?
-        <span class="opzioni">Ente pubblico · azienda privata · libero professionista · altro</span></li>
-      <li>Usi l'AI per lavoro?
-        <span class="opzioni">No · sì, con un mio abbonamento · sì, con uno strumento fornito da chi mi paga · non so se si può</span></li>
-      <li>Dove lavori ci sono regole scritte sull'AI?
-        <span class="opzioni">Sì · no · non lo so</span></li>
-      <li>Cosa ti servirebbe di più?
-        <span class="opzioni">Più risposte possibili: modello di regole · formazione breve · esempi di testi · sapere cosa non incollare in un chatbot · altro</span></li>
-      <li>Facoltativa: una riga su una situazione che vorresti vedere nel prossimo episodio.
-        <span class="opzioni">Senza nomi di persone o enti.</span></li>
-    </ol>
-
-    <p class="privacy">Non chiedo email né nomi: il modulo raccoglie solo le risposte. Sono anonime e servono a scegliere i prossimi episodi della rubrica. Titolare del trattamento: LABago, a.padula@labago.it. Scrivi senza nomi di persone o di enti: se per errore ne finiscono nella riga libera, scrivimi e li cancello.</p>
-  </section>
-
-  <footer class="piede">
-    <p class="firma">LABago</p>
-    <p>Casi costruiti sul modello di lavori reali. Nessun ente o persona reale è rappresentato.</p>
-
-    <h2>Fonti (consultate il 7 novembre 2026; AgID l'8 novembre 2026)</h2>
-    <ul>
-      <li>AI Act, art. 4, alfabetizzazione del personale: <a href="https://ai-act-service-desk.ec.europa.eu/it/ai-act/article-4" rel="noopener noreferrer">AI Act Service Desk</a>. Testo modificato dal regolamento (UE) 2026/1744: <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32026R1744" rel="noopener noreferrer">EUR-Lex</a></li>
-      <li>Legge 132/2025, art. 14, AI nella pubblica amministrazione: <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132~art14" rel="noopener noreferrer">Normattiva</a></li>
-      <li>AgID, intelligenza artificiale: <a href="https://www.agid.gov.it/it/ambiti-intervento/intelligenza-artificiale" rel="noopener noreferrer">pagina AgID</a></li>
-    </ul>
-    <p>Le fonti di «Cosa sapere prima di usare un chatbot» sono nei link della sezione, consultati l'8 novembre 2026 (per le pagine OpenAI vale la nota nella scheda di ChatGPT).</p>
-    <p>Prima di applicare le regole conviene leggere il testo ufficiale delle norme.</p>
-  </footer>
+  <p class="piede">LABago · AI nel pubblico, episodio 1</p>
 
 </main>
 </body>
