@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le regole di Renato</title>
+<meta name="description" content="Cinque regole per usare l'AI in ufficio, cosa sapere prima di usare un chatbot, il foglio da appendere e quattro domande da un minuto, più una facoltativa. AI nel pubblico, episodio 1.">
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --carta: #fbfaf6;
+    --inchiostro: #141414;
+    --grigio: #4a4a48;
+    --riga: #141414;
+    --accento: #b42318;      /* rosso penna: unico colore, 6,3:1 su --carta */
+    --accento-testo: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--carta);
+    color: var(--inchiostro);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  .pagina {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+  }
+  h1, h2, .titolo-mano {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  h1 { font-size: 1.85rem; margin: 0.2em 0 0.5em; }
+  h2 { font-size: 1.4rem; margin: 0 0 0.6em; }
+  p { margin: 0 0 1em; }
+  a { color: var(--inchiostro); text-underline-offset: 3px; }
+  a:focus-visible, .bottone:focus-visible {
+    outline: 3px solid var(--accento);
+    outline-offset: 3px;
+  }
+
+  /* Riquadro del disegno */
+  .vignetta {
+    margin: 0 0 20px;
+  }
+  .vignetta svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #f1ebdd;     /* carta delle slide risograph */
+  }
+  .occhiello {
+    margin: 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--grigio);
+  }
+
+  /* Voce di Renato */
+  .battuta {
+    margin: 0 0 12px;
+    padding: 16px 18px;
+    border: 2px solid var(--riga);
+    border-radius: 18px 16px 20px 6px;
+    background: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+  }
+  .battuta p { margin: 0; }
+  .battuta footer { margin-top: 6px; font-size: 0.9rem; color: var(--grigio); font-family: system-ui, sans-serif; }
+  .nota-caso { font-size: 0.95rem; color: var(--grigio); }
+
+  section { margin-top: 36px; padding-top: 28px; border-top: 2px solid var(--riga); }
+
+  /* Regole */
+  .regole {
+    list-style: none;
+    counter-reset: regola;
+    margin: 0 0 16px;
+    padding: 0;
+  }
+  .regole li {
+    counter-increment: regola;
+    position: relative;
+    padding: 12px 0 12px 2.6rem;
+    border-bottom: 1px dashed var(--riga);
+  }
+  .regole li::before {
+    content: counter(regola) ".";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  .simbolo {
+    display: inline-block;
+    min-width: 1.4em;
+    margin-left: 0.3em;
+    font-weight: 700;
+    text-align: center;
+  }
+  .vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .base { display: block; margin-top: 2px; font-size: 0.88rem; color: var(--grigio); }
+  .legenda { font-size: 0.95rem; color: var(--grigio); }
+
+  .avviso {
+    margin: 20px 0 0;
+    padding: 16px 18px;
+    border: 2px solid var(--riga);
+    border-left-width: 8px;
+    background: #ffffff;
+  }
+  .avviso h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .avviso p { margin: 0 0 0.6em; font-size: 0.97rem; }
+  .avviso p:last-child { margin-bottom: 0; }
+
+  /* Cosa sapere prima di usare un chatbot */
+  h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; line-height: 1.25; margin: 30px 0 10px; }
+  .chiave {
+    margin: 0 0 16px;
+    padding: 2px 0 2px 14px;
+    border-left: 6px solid var(--accento);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.08rem;
+  }
+  .fornitore { margin: 0 0 14px; padding: 14px 16px; border: 2px solid var(--riga); background: #ffffff; }
+  .fornitore h4 { margin: 0 0 8px; font-size: 1.05rem; }
+  .fornitore dl { margin: 0; }
+  .fornitore dt { font-weight: 700; font-size: 0.95rem; margin-top: 8px; }
+  .fornitore dd { margin: 2px 0 0; font-size: 0.97rem; }
+  .fornitore .uguale { background: #fbeae7; padding: 2px 6px; margin-left: -6px; margin-right: -6px; }
+  .fornitore .attenzione { margin: 0 0 8px; font-size: 0.92rem; padding: 6px 10px; border: 1px dashed var(--riga); }
+  .fonti-forn { margin: 10px 0 0; padding-top: 8px; border-top: 1px dashed var(--riga); font-size: 0.88rem; color: var(--grigio); overflow-wrap: anywhere; }
+  .fonti-forn a { color: var(--grigio); }
+  .norme { list-style: none; margin: 0; padding: 0; }
+  .norme li { padding: 12px 0; border-bottom: 1px dashed var(--riga); overflow-wrap: anywhere; }
+  .etichetta {
+    display: inline-block; margin-right: 6px; padding: 0 8px;
+    border: 1.5px solid var(--inchiostro); border-radius: 12px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .etichetta.norma { background: var(--inchiostro); color: #ffffff; }
+  .norme .link { display: block; margin-top: 4px; font-size: 0.92rem; }
+  .caso dt { font-weight: 700; margin-top: 14px; }
+  .caso dd { margin: 4px 0 0; }
+  .caso .norma-dd { padding-left: 12px; border-left: 4px solid var(--inchiostro); }
+
+  /* Bottoni */
+  .bottone {
+    display: inline-block;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 2px solid var(--inchiostro);
+    border-radius: 6px 10px 6px 12px;
+    background: var(--accento);
+    color: var(--accento-testo);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--inchiostro);
+  }
+  .bottone:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--inchiostro); }
+  .bottone:active { transform: translate(3px, 3px); box-shadow: none; }
+
+  /* Domande */
+  .domande { margin: 20px 0 0; padding-left: 1.4rem; }
+  .domande li { margin-bottom: 12px; }
+  .domande li::marker { font-weight: 700; }
+  .opzioni { display: block; font-size: 0.92rem; color: var(--grigio); }
+  .anteprima {
+    margin: 22px 0 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--grigio);
+  }
+  .privacy {
+    margin-top: 16px;
+    padding: 12px 0 0;
+    border-top: 1px dashed var(--riga);
+    font-weight: 600;
+  }
+
+  /* Piede */
+  .piede {
+    margin-top: 44px;
+    padding-top: 22px;
+    border-top: 2px solid var(--riga);
+    font-size: 0.92rem;
+    color: var(--grigio);
+  }
+  .piede .firma { color: var(--inchiostro); font-weight: 700; font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; }
+  .piede h2 { font-size: 1rem; margin: 18px 0 6px; color: var(--inchiostro); }
+  .piede ul { margin: 0 0 10px; padding-left: 1.1rem; }
+  .piede li { margin-bottom: 6px; overflow-wrap: anywhere; }
+  .piede a { color: var(--grigio); }
+
+  @media (min-width: 560px) {
+    body { font-size: 1.125rem; }
+    .pagina { padding-top: 40px; }
+    h1 { font-size: 2.3rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bottone, .bottone:hover, .bottone:active { transform: none; }
+  }
+</style>
+</head>
+<body>
+<main class="pagina">
+
+  <header>
+    <figure class="vignetta">
+<svg role="img" aria-labelledby="renato-titolo" class="riso-pagina" viewBox="0 0 1080 640">
+<title id="renato-titolo">Renato, testa quasi calva con un ricciolo, occhiali tondi e badge al collo, beve dalla sua tazza scheggiata alla scrivania e guarda la bacheca con il foglio delle regole. Disegno a due inchiostri, nero-blu e rosso, su carta crema.</title>
+<style>
+  svg.riso-pagina { --carta: #f1ebdd; --nero: #1d2330; --rosso: #b42318; }
+  svg.riso-pagina .stampa { mix-blend-mode: multiply; }
+  svg.riso-pagina .lastra-nera { --inchiostro: #1d2330; --foglio: #ffffff; --tratto: 5px; --tratto-fine: 3.5px; }
+  svg.riso-pagina .lastra-rossa { --inchiostro: #b42318; --foglio: #ffffff; --tratto: 5px; --tratto-fine: 3.5px; }
+  /* classi delle forme senza prefisso: dentro i simboli richiamati con use (shadow tree) un
+     selettore con antenato non arriva. La pagina non usa queste classi altrove. */
+  .pieno { fill: var(--inchiostro); }
+  .t55 { fill: var(--inchiostro); fill-opacity: .55; }
+  .t35 { fill: var(--inchiostro); fill-opacity: .35; }
+  .t25 { fill: var(--inchiostro); fill-opacity: .25; }
+  .t10 { fill: var(--inchiostro); fill-opacity: .10; }
+  .vuoto { fill: #ffffff; }
+  /* qui il tratto scala con il disegno (niente vector-effect): a 390 px di larghezza un pennino
+     fisso a 5 px impasterebbe tutto. Le proporzioni restano quelle delle slide a 1080 px. */
+  .filo { fill: none; stroke: var(--inchiostro); stroke-width: 2.4px; stroke-linecap: round; }
+  .i, .i2 { fill: none; stroke: var(--inchiostro, #1d2330); stroke-linecap: round; stroke-linejoin: round; }
+  .i { stroke-width: var(--tratto, 5px); }
+  .i2 { stroke-width: var(--tratto-fine, 3.5px); }
+  .b { fill: var(--foglio, #ffffff); }
+  .n { fill: var(--inchiostro, #1d2330); stroke: none; }
+</style><rect width="1080" height="640" fill="var(--carta)"/>
+  <defs>
+    <clipPath id="vg-clip-pannello"><rect x="24" y="22" width="1032" height="596"/></clipPath>
+  <filter id="riso-nero" filterUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1350" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.0287" numOctaves="2" seed="810" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="5" xChannelSelector="R" yChannelSelector="G" result="mosso"/><feMorphology in="mosso" operator="erode" radius="1.1" result="grosso"/><feTurbulence type="fractalNoise" baseFrequency="0.0113" numOctaves="1" seed="630" result="pressione"/><feColorMatrix in="pressione" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  7 0 0 0 -3.1" result="maschera"/><feComposite in="grosso" in2="maschera" operator="in" result="premuto"/><feTurbulence type="fractalNoise" baseFrequency="0.9360" numOctaves="2" seed="696" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 10 -6.7" result="buchi"/><feTurbulence type="fractalNoise" baseFrequency="0.0054 0.0140" numOctaves="2" seed="821" result="d"/><feColorMatrix in="d" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.8 -0.4" result="densita"/><feMerge><feMergeNode in="mosso"/><feMergeNode in="premuto"/><feMergeNode in="densita"/><feMergeNode in="buchi"/></feMerge></filter><pattern id="riso-retino-nero" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="6" cy="6" r="2" fill="#1d2330"/></pattern><g id="riso-renato-34-busto">
+  <path class="t55" d="M52 470 L72 346 C82 302 128 276 172 262 L216 262 C264 270 308 292 318 336 L342 470 Z"/>
+  <path class="vuoto" d="M172 262 L150 322 L166 470 L222 470 L238 322 L216 262 Z"/>
+  <path class="pieno" fill-opacity=".9" d="M300 300 C312 314 318 330 318 336 L342 470 L300 470 Q304 400 292 334 Z"/>
+  <path class="pieno" fill-opacity=".9" d="M238 322 L222 470 L236 470 L250 330 Z"/>
+  <path class="t10" d="M216 262 L238 322 L222 470 L210 470 L222 330 L204 268 Z"/>
+  <path class="vuoto" d="M178 212 L176 266 L215 266 L212 212 Z"/>
+  <path class="t10" d="M177 222 C186 238 204 238 213 226 L214 244 C204 252 186 252 176.6 244 Z"/>
+  <path class="i" d="M178 214 L176 262 M212 214 L215 262"/>
+  <path class="vuoto" d="M176 259 L186 282 L194 268 L202 282 L213 259 Z"/>
+  <path class="i2" d="M176 259 L186 282 L194 268 L202 282 L213 259"/>
+  <path class="i" d="M54 470 L72 348 C82 304 128 278 172 262 M216 262 C264 271 308 294 318 338 L342 470"/>
+  <path class="i" d="M172 262 L150 322 L166 470 M216 262 L238 322 L222 470"/>
+  <path class="i2" d="M100 350 Q98 410 96 470"/>
+  <rect class="i2 b" x="177" y="356" width="34" height="44" rx="3"/>
+  <rect class="i2 b" x="189" y="351" width="10" height="9" rx="2"/>
+</g><g id="riso-renato-34-testa">
+  <ellipse class="vuoto" cx="192" cy="150" rx="60" ry="80"/>
+  <g clip-path="url(#riso-clip-testa-34)">
+    <path class="t10" fill-rule="evenodd" d="M100 40 H300 V260 H100 Z M120 140 A64 86 0 1 0 248 140 A64 86 0 1 0 120 140 Z"/>
+  </g>
+  <path class="i" d="M212.5 74.8 A60 80 0 1 1 176.5 72.7"/>
+  <path class="t10" d="M236 134 C250 132 252 166 238 166 Z"/>
+  <path class="i2" d="M236 134 C250 132 252 166 238 166 M240 144 Q246 150 240 156"/>
+  <path class="i2" d="M156 168 Q144 182 158 186"/>
+  <use href="#occhiali-34" transform="translate(162 146)"/>
+  <use href="#ricciolo" transform="translate(188 70)"/>
+</g><g id="riso-viso-34-sorriso">
+  <path class="i" d="M133 112 Q141 106 151 108 M171 102 Q186 95 202 101"/>
+  <path class="i2" d="M151 197 Q166 205 181 193 M180 189 Q186 193 183 199"/>
+</g><g id="riso-monitor-clessidra">
+  <path class="vuoto" d="M30 8 L2 20 L0 116 L30 146 Z"/>
+  <path class="t10" d="M30 8 L2 20 L0 116 L30 146 Z"/>
+  <path class="i" d="M30 8 L2 20 L0 116 L30 146"/>
+  <path class="i2" d="M22 42 L8 46 M22 56 L8 60 M22 70 L8 74"/>
+  <rect class="vuoto" x="30" y="0" width="160" height="150" rx="10"/>
+  <rect class="i" x="30" y="0" width="160" height="150" rx="10"/>
+  <rect class="t35" x="44" y="14" width="132" height="102" rx="14"/>
+  <path class="vuoto" fill-opacity=".45" d="M54 22 L96 22 L60 72 L54 72 Z"/>
+  <rect class="i2" x="44" y="14" width="132" height="102" rx="14"/>
+  <path class="vuoto" d="M90 34 L130 34 L110 64 Z M110 64 L90 94 L130 94 Z"/>
+  <path class="i2" d="M90 34 L130 34 L110 64 Z M110 64 L90 94 L130 94 Z"/>
+  <path class="i" d="M84 32 L136 32 M84 96 L136 96"/>
+  <path class="pieno" d="M101 91 L119 91 L110 80 Z"/>
+  <path class="pieno" d="M100 42 L120 42 L110 54 Z"/>
+  <path class="i2" d="M48 134 L104 134"/>
+  <circle class="i2" cx="170" cy="134" r="5"/>
+  <path class="vuoto" d="M56 150 L164 150 L174 166 L46 166 Z"/>
+  <path class="i" d="M56 150 L46 166 L174 166 L164 150"/>
+</g><g id="riso-pianta">
+  <path class="t25" d="M-4 -40 C-28 -70 -42 -98 -38 -130 C-18 -106 -6 -76 3 -42 Z"/>
+  <path class="t25" d="M2 -40 C4 -82 10 -114 26 -142 C30 -106 20 -72 10 -40 Z"/>
+  <path class="t25" d="M8 -40 C26 -68 46 -80 66 -74 C72 -72 74 -62 68 -50 C64 -64 50 -62 16 -34 Z"/>
+  <path class="t25" d="M-6 -38 C-26 -52 -46 -56 -62 -48 C-46 -42 -26 -38 -8 -32 Z"/>
+  <path class="i2" d="M-4 -40 C-28 -70 -42 -98 -38 -130 C-18 -106 -6 -76 3 -42"/>
+  <path class="i2" d="M2 -40 C4 -82 10 -114 26 -142 C30 -106 20 -72 10 -40"/>
+  <path class="i2" d="M8 -40 C26 -68 46 -80 66 -74 C72 -72 74 -62 68 -50 C64 -64 50 -62 16 -34"/>
+  <path class="i2" d="M-6 -38 C-26 -52 -46 -56 -62 -48 C-46 -42 -26 -38 -8 -32"/>
+  <path class="filo" d="M-2 -44 C-16 -70 -26 -96 -34 -120 M6 -44 C10 -80 16 -108 22 -130"/>
+  <path class="vuoto" d="M-26 -44 L26 -44 L20 0 L-20 0 Z"/>
+  <path class="t10" d="M10 -44 L26 -44 L20 0 L8 0 Z"/>
+  <path class="i" d="M-26 -44 L26 -44 L20 0 L-20 0 Z"/>
+  <path class="i2" d="M-24 -33 L24 -33"/>
+</g><g id="riso-braccio-tazza-34">
+  <path class="t55" d="M58 434 C60 408 66 380 72 356 L114 352 C114 376 112 404 112 434 Z"/>
+  <path class="pieno" fill-opacity=".9" d="M100 354 L114 352 C114 376 112 404 112 434 L96 434 Q100 392 100 354 Z"/>
+  <path class="i" d="M58 434 C60 408 66 380 72 356 M114 352 C114 376 112 404 112 434 M56 434 Q86 442 114 434"/>
+  <use href="#riso-tazza" transform="translate(98 338) scale(.85)"/>
+  <path class="vuoto" d="M72 358 L114 354 L113 344 L73 348 Z"/>
+  <path class="i2" d="M72 358 L114 354 L113 344 L73 348 Z"/>
+  <path class="vuoto" d="M72 348 C64 336 64 316 76 308 L112 306 C122 314 122 334 116 346 Z"/>
+  <path class="t10" d="M104 346 L116 346 C122 334 122 314 112 306 C114 322 112 336 104 346 Z"/>
+  <path class="i" d="M72 348 C64 336 64 316 76 308 L112 306 C122 314 122 334 116 346"/>
+  <path class="i2" d="M74 322 L98 320 M74 334 L100 332"/>
+</g><g id="vapore">
+  <path class="i2" d="M-8 -114 C-18 -126 2 -136 -8 -150 M10 -116 C0 -128 20 -138 10 -154"/>
+</g><filter id="riso-rosso" filterUnits="userSpaceOnUse" x="-20" y="-20" width="1120" height="1390" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.0258" numOctaves="2" seed="52" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="4" xChannelSelector="R" yChannelSelector="G" result="mosso"/><feTurbulence type="fractalNoise" baseFrequency="0.7449" numOctaves="2" seed="41" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 10 -6.5" result="buchi"/><feTurbulence type="fractalNoise" baseFrequency="0.0052 0.0116" numOctaves="2" seed="557" result="d"/><feColorMatrix in="d" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 -0.42" result="densita"/><feMerge><feMergeNode in="mosso"/><feMergeNode in="densita"/><feMergeNode in="buchi"/></feMerge></filter><g id="riso-cordino-34">
+  <path fill="none" stroke="var(--inchiostro)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" d="M182 262 L194 352 L206 262"/>
+</g><g id="riso-tazza-in-mano-34">
+  <use href="#riso-tazza-rossa" transform="translate(98 338) scale(.85)"/>
+</g><filter id="riso-carta" filterUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1350" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.9531" numOctaves="3" seed="325" result="fine"/><feColorMatrix in="fine" type="matrix" values="0 0 0 0 0.45  0 0 0 0 0.38  0 0 0 0 0.27  0 0 0 -2.4 1.45" result="g1"/><feTurbulence type="fractalNoise" baseFrequency="0.0177" numOctaves="3" seed="162" result="larga"/><feColorMatrix in="larga" type="matrix" values="0 0 0 0 0.8  0 0 0 0 0.72  0 0 0 0 0.58  0 0 0 -0.7 0.4" result="g2"/><feMerge><feMergeNode in="g2"/><feMergeNode in="g1"/></feMerge></filter><clipPath id="riso-clip-testa-34"><ellipse cx="192" cy="150" rx="60" ry="80"/></clipPath><g id="occhiali-34">
+  <ellipse class="i b" cx="-16" cy="0" rx="13" ry="20"/>
+  <circle class="i b" cx="22" cy="0" r="21"/>
+  <path class="i2" d="M-3 -1 Q-1 -3 1 -1 M43 -2 L74 -6"/>
+</g><g id="ricciolo">
+  <path class="i" d="M25 -38 C2 -45 -14 -25 -10 -8 C-6 8 15 6 15 -8 C15 -19 1 -21 -5 -10"/>
+</g><g id="riso-tazza">
+  <use href="#tazza"/>
+  <ellipse class="pieno" cx="0" cy="-96" rx="24" ry="5.5"/>
+  <path class="pieno" d="M-30 -93 L-5 -88 L-17 -68 Z"/>
+</g><g id="riso-tazza-rossa">
+  <path class="pieno" d="M-32 -96 A32 9 0 0 0 32 -96 L27 -8 Q0 2 -27 -8 Z"/>
+  <path class="vuoto" d="M-22 -84 L-19 -16 L-14 -14 L-17 -84 Z" fill-opacity=".55"/>
+  <path class="vuoto" d="M-34 -100 L-2 -89 L-17 -64 Z"/>
+</g><g id="tazza">
+  <path class="b" d="M-32 -96 L-27 -8 Q0 2 27 -8 L32 -96 Z"/>
+  <path class="i" d="M-32 -94 L-27 -8 Q0 2 27 -8 L31.5 -90"/>
+  <path class="i" d="M31 -78 C58 -80 58 -30 27 -33"/>
+  <ellipse class="i b" cx="0" cy="-96" rx="32" ry="9"/>
+  <path class="n" d="M-27 -90 L-8 -87.5 L-17 -74 Z"/>
+</g></defs>
+  <g class="lastra-nera stampa"><g filter="url(#riso-nero)"><rect x="-20" y="-20" width="1120" height="680" class="vuoto"/>
+    <g clip-path="url(#vg-clip-pannello)">
+      <rect class="t25" x="66" y="62" width="350" height="320"/>
+      <rect x="66" y="62" width="350" height="320" fill="url(#riso-retino-nero)" fill-opacity=".35"/>
+      <path class="i" d="M64 60 L418 58 L420 384 L62 382 Z" style="--tratto:4.5px"/>
+      <g transform="rotate(-2 240 222)">
+        <rect class="vuoto" x="124" y="84" width="232" height="276"/>
+        <rect class="i2" x="124" y="84" width="232" height="276"/>
+        <path class="i2" d="M142 120 C190 116 250 122 314 117"/>
+        <path class="filo" d="M142 164 L334 162 M156 180 L280 179 M142 206 L336 204 M156 222 L300 221 M142 248 L330 246 M156 264 L268 263 M142 290 L334 288 M156 306 L290 305"/>
+        <path class="filo" stroke-dasharray="6 5" d="M140 330 L340 329"/>
+      </g>
+      <g transform="translate(628 92) scale(1.1)">
+        <use href="#riso-renato-34-busto"/>
+        <g transform="rotate(-3 195 215)">
+          <use href="#riso-renato-34-testa"/>
+          <use href="#riso-viso-34-sorriso"/>
+        </g>
+      </g>
+      <path class="vuoto" d="M14 576 L1066 576 L1066 650 L14 650 Z"/>
+      <path class="t25" d="M14 576 L1066 576 L1066 589 L14 589 Z"/>
+      <path class="t10" d="M14 589 L1066 589 L1066 650 L14 650 Z"/>
+      <path class="i" d="M26 577 C300 574 700 576 1054 574"/>
+      <path class="i2" d="M28 590 C320 588 720 591 1052 588"/>
+      <path class="filo" d="M110 612 L168 609 M842 620 L874 614"/>
+      <path class="t25" d="M600 578 L636 578 L636 585 L614 585 Z"/>
+      <use href="#riso-monitor-clessidra" transform="translate(448 410)"/>
+      <use href="#riso-pianta" transform="translate(518 412) scale(.72)"/>
+      <g transform="translate(628 92) scale(1.1)">
+        <use href="#riso-braccio-tazza-34"/>
+        <use href="#vapore" transform="translate(98 338) scale(.85)"/>
+      </g>
+    </g>
+    <path class="i" d="M24 24 L1046 20 M1054 14 L1058 616 M1064 610 L32 618 M22 626 L26 24" style="--tratto:5.5px"/>
+  </g></g>
+  <g class="lastra-rossa stampa"><g class="fuori-registro" transform="translate(2.6 -1.8) rotate(0.1 540 320)"><g filter="url(#riso-rosso)"><rect x="-20" y="-20" width="1120" height="680" class="vuoto"/>
+    <g clip-path="url(#vg-clip-pannello)">
+      <path class="t35" d="M14 576 L1066 576 L1066 589 L14 589 Z"/>
+      <g transform="rotate(-2 240 222)">
+        <circle class="pieno" cx="140" cy="98" r="10"/><circle class="vuoto" cx="137" cy="95" r="3"/>
+        <circle class="pieno" cx="340" cy="98" r="10"/><circle class="vuoto" cx="337" cy="95" r="3"/>
+        <path fill="none" stroke="var(--inchiostro)" stroke-width="4" stroke-linecap="round" d="M142 132 C200 128 270 134 318 129"/>
+      </g>
+      <g transform="translate(628 92) scale(1.1)">
+        <use href="#riso-cordino-34"/>
+        <use href="#riso-tazza-in-mano-34"/>
+      </g>
+    </g>
+  </g></g></g>
+<rect width="1080" height="640" filter="url(#riso-carta)" class="stampa" opacity=".26"/></svg>
+    </figure>
+
+    <p class="occhiello">AI nel pubblico · episodio 1</p>
+    <h1>Il dipendente e il suo abbonamento ChatGPT</h1>
+
+    <blockquote class="battuta">
+      <p>«Faccio io, faccio prima. Queste sono le regole che avrei voluto trovare in bacheca il primo giorno.»</p>
+      <footer>Renato, istruttore amministrativo</footer>
+    </blockquote>
+    <p class="nota-caso">Renato non esiste. Il suo caso è costruito sul modello di lavori reali.</p>
+  </header>
+
+  <section aria-labelledby="regole-titolo">
+    <h2 id="regole-titolo">Come usiamo l'AI in questo ufficio</h2>
+    <p>Cinque righe da appendere in bacheca. Il simbolo accanto a ogni regola dice da dove viene.</p>
+
+    <ol class="regole">
+      <li>Si usano gli strumenti scelti dall'ente, non gli account personali.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></li>
+      <li>I dati di cittadini e colleghi non vanno in un chatbot che l'ente non ha autorizzato.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></li>
+      <li>L'AI prepara la bozza. La persona controlla, firma e ne risponde.<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span>
+        <span class="base">Legge 132/2025, art. 14: dei provvedimenti risponde la persona. La regola lo estende a ogni testo: quella parte è un suggerimento. Questo § vale per la pubblica amministrazione: per un'azienda privata è buona prassi, non obbligo.</span></li>
+      <li>Quando un testo nasce con l'AI, chi lo firma lo dice al responsabile.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></li>
+      <li>L'ente prende misure per formare chi usa l'AI, anche con corsi brevi.<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span>
+        <span class="base">AI Act, art. 4: fornitori e utilizzatori professionali di sistemi di AI (deployer) adottano misure per sostenere l'alfabetizzazione del personale. Legge 132/2025, art. 14, c. 3: misure formative nella pubblica amministrazione. Le norme chiedono misure; i corsi brevi sono un esempio nostro.</span></li>
+    </ol>
+
+    <p class="legenda">§ = lo dice una norma (fonti in fondo alla pagina).<br>✱ = suggerimento.</p>
+
+    <aside class="avviso" aria-labelledby="avviso-titolo">
+      <h3 id="avviso-titolo">Non è un parere legale</h3>
+      <p>Sono regole per cominciare a parlarne in ufficio. Le norme sono riassunte e citate in fondo alla pagina: prima di adottare queste regole falle vedere a chi segue la parte legale.</p>
+      <p>Su AgID: non risultano linee guida sull'AI adottate in via definitiva (da verificare).</p>
+    </aside>
+  </section>
+
+  <section aria-labelledby="chatbot-titolo">
+    <h2 id="chatbot-titolo">Cosa sapere prima di usare un chatbot</h2>
+    <p>Renato l'abbonamento se l'è pagato da solo. Basta questo a proteggere i dati dell'ufficio? Qui sotto trovi cosa fanno dei dati i quattro chatbot, le norme da leggere e un esempio. La versione corta sta sulla seconda pagina del PDF. Pagine dei fornitori consultate l'8 novembre 2026, tranne quelle di OpenAI: non si sono aperte (HTTP 403) e i dati su ChatGPT vengono da estratti di ricerca dell'8 novembre 2026.</p>
+
+    <h3>I miei dati addestrano il modello? E dove stanno?</h3>
+    <p class="chiave">Con Claude, Gemini e ChatGPT pagare un piano personale non basta: conta l'impostazione. Le garanzie scritte (niente addestramento di default, niente revisori umani, dati in Europa) arrivano con i piani aziendali, e non tutte con ogni fornitore.</p>
+
+    <div class="fornitore">
+      <h4>Claude</h4>
+      <dl>
+        <dt>Gratuito (Free)</dt>
+        <dd>I dati servono ad addestrare i modelli solo se è attiva «Model Improvement», nelle Privacy Settings. Nelle pagine lette non c'è scritto se parte attiva o spenta: controlla l'impostazione. Con l'addestramento attivo le chat, de-identificate, restano fino a 5 anni. Le chat in Incognito non si usano.</dd>
+        <dt class="uguale">A pagamento, personale (Pro, Max)</dt>
+        <dd class="uguale">Come il gratuito.</dd>
+        <dt>Aziendale (Team, Enterprise, API)</dt>
+        <dd>Di default i dati non servono ad addestrare i modelli. L'eccezione è il feedback con il pollice su o giù, che resta fino a 5 anni.</dd>
+        <dt>Dati in Europa</dt>
+        <dd>Nessuna opzione UE documentata: i dati sono archiviati negli USA.</dd>
+      </dl>
+      <p class="fonti-forn">Fonti: <a href="https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training" rel="noopener noreferrer">uso dei dati per il training</a> (pagina aggiornata il 16 marzo 2026); <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" rel="noopener noreferrer">uso dei dati per il training</a> (18 agosto 2026); <a href="https://privacy.claude.com/en/articles/7996890-where-are-your-servers-located-do-you-host-your-models-on-eu-servers" rel="noopener noreferrer">dove sono i server</a> (15 giugno 2026).</p>
+    </div>
+
+    <div class="fornitore">
+      <h4>Gemini</h4>
+      <dl>
+        <dt>Gratuito (account Google personale)</dt>
+        <dd>Con «Keep Activity» attiva, le attività possono servire ad addestrare i modelli. L'attività resta 18 mesi; si può portare a 3 o a 36. Alcune chat possono essere lette da revisori umani: vengono scollegate dall'account e restano fino a 3 anni. Default non dichiarato: controlla l'impostazione.</dd>
+        <dt class="uguale">A pagamento, personale (Google AI Pro)</dt>
+        <dd class="uguale">Come il gratuito.</dd>
+        <dt>Aziendale (Google Workspace)</dt>
+        <dd>Nessun addestramento sui dati del cliente senza il suo permesso. Chat e file non li rivede nessuna persona.</dd>
+        <dt>Dati in Europa, piani Workspace</dt>
+        <dd>Per prompt e risposte: data region «Europe», secondo l'edizione.</dd>
+      </dl>
+      <p class="fonti-forn">Fonti: <a href="https://support.google.com/gemini/answer/13594961" rel="noopener noreferrer">Privacy Hub di Gemini</a> (26 ottobre 2026); <a href="https://knowledge.workspace.google.com/admin/gemini/generative-ai-in-google-workspace-privacy-hub" rel="noopener noreferrer">Privacy Hub di Gemini in Workspace</a> (6 ottobre 2026).</p>
+    </div>
+
+    <div class="fornitore">
+      <h4>ChatGPT</h4>
+      <p class="attenzione">Da verificare sulla pagina OpenAI. Le pagine di aiuto non si sono aperte (HTTP 403): quello che segue, piani a pagamento compresi, viene da estratti di ricerca dell'8 novembre 2026. Per questo non ci sono cifre.</p>
+      <dl>
+        <dt>Gratuito (Free)</dt>
+        <dd>I dati possono servire a migliorare i modelli se è attiva «Improve the model for everyone», in Settings &gt; Data Controls. Controlla l'impostazione. Le Temporary Chat non si usano per l'addestramento.</dd>
+        <dt class="uguale">A pagamento, personale (Plus, Pro)</dt>
+        <dd class="uguale">Come il gratuito.</dd>
+        <dt>Aziendale (Business, Enterprise, Edu)</dt>
+        <dd>Di default i dati non servono ad addestrare i modelli.</dd>
+        <dt>Dati in Europa</dt>
+        <dd>Enterprise ed Edu: sì, per i nuovi workspace. Per i piani personali non risulta.</dd>
+      </dl>
+      <p class="fonti-forn">Fonti (pagine non aperte, HTTP 403; dati da estratti di ricerca dell'8 novembre 2026): <a href="https://help.openai.com/en/articles/7730893-chatgpt-privacy-practices" rel="noopener noreferrer">privacy di ChatGPT</a>; <a href="https://help.openai.com/en/articles/8983082-how-do-i-turn-off-model-training-to-stop-openai-training-models-on-my-conversations" rel="noopener noreferrer">come disattivare il training</a>; <a href="https://help.openai.com/en/articles/9903489-data-residency-and-inference-residency-for-chatgpt" rel="noopener noreferrer">residenza dei dati</a>.</p>
+    </div>
+
+    <div class="fornitore">
+      <h4>Copilot</h4>
+      <p class="attenzione">Di recente è uscita una nuova app Copilot: le pagine lette riguardano la versione precedente.</p>
+      <dl>
+        <dt>Gratuito, con account Microsoft personale</dt>
+        <dd>I dati si usano per l'addestramento, salvo opt-out da «Training on conversation activity» nelle impostazioni Privacy. Dalla revisione umana invece non ci si può togliere. Le conversazioni restano 18 mesi.</dd>
+        <dt class="uguale">A pagamento, personale (Microsoft 365 Personal e Family, Copilot nelle app)</dt>
+        <dd class="uguale">Esclusi dall'addestramento.</dd>
+        <dt>Aziendale (Microsoft 365 Copilot, account Entra ID)</dt>
+        <dd>I dati non servono ad addestrare i modelli di base e nessuna persona li rivede.</dd>
+        <dt>Dati in Europa, piano aziendale</dt>
+        <dd>Rientra nella EU Data Boundary. Per ora ne restano fuori i modelli di Anthropic.</dd>
+      </dl>
+      <p class="fonti-forn">Fonti: <a href="https://support.microsoft.com/en-us/microsoft-copilot/privacy-faq-for-microsoft-copilot" rel="noopener noreferrer">domande frequenti sulla privacy di Copilot</a> (pagina senza data); <a href="https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy" rel="noopener noreferrer">privacy di Microsoft 365 Copilot</a> (9 luglio 2026).</p>
+    </div>
+
+    <aside class="avviso" aria-label="Prima di usarlo in ufficio">
+      <p><strong>Le condizioni cambiano: controlla la pagina del fornitore prima di usarlo con dati dell'ufficio.</strong></p>
+      <p>E qualunque sia il piano, in un account personale i dati personali di cittadini e colleghi non si incollano.<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></p>
+    </aside>
+
+    <h3>Le norme, e dove leggerle</h3>
+    <ul class="norme">
+      <li><span class="etichetta norma">Norma</span> <strong>AI Act</strong>, regolamento (UE) 2024/1689. In vigore dal 1° agosto 2024; l'art. 4, sull'alfabetizzazione, si applica dal 2 febbraio 2025. Riguarda fornitori e utilizzatori professionali (deployer).
+        <span class="link"><a href="https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32024R1689" rel="noopener noreferrer">Testo su EUR-Lex</a> · <a href="https://ai-act-service-desk.ec.europa.eu/it/ai-act/article-4" rel="noopener noreferrer">Art. 4 sull'AI Act Service Desk</a></span></li>
+      <li><span class="etichetta norma">Norma</span> <strong>Regolamento (UE) 2026/1744</strong> dell'8 luglio 2026, pubblicato nella Gazzetta ufficiale dell'UE il 24 luglio 2026. Modifica l'art. 4 dell'AI Act.
+        <span class="link"><a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32026R1744" rel="noopener noreferrer">Testo su EUR-Lex</a></span></li>
+      <li><span class="etichetta norma">Norma</span> <strong>GDPR</strong>, regolamento (UE) 2016/679. Gli articoli da cui partire: l'art. 5 (principi), l'art. 6 (liceità del trattamento), l'art. 28 (responsabile del trattamento) e l'art. 35 (valutazione d'impatto).
+        <span class="link"><a href="https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679" rel="noopener noreferrer">Testo su EUR-Lex</a></span></li>
+      <li><span class="etichetta norma">Norma</span> <strong>Legge 132/2025, art. 14</strong>: l'AI nella pubblica amministrazione. La persona mantiene il potere decisionale ed è l'unica responsabile dei provvedimenti.
+        <span class="link"><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132~art14" rel="noopener noreferrer">Art. 14 su Normattiva</a></span></li>
+      <li><span class="etichetta">Parere</span> <strong>EDPB, parere 28/2024</strong> su alcuni aspetti di protezione dei dati nei modelli di AI. È un parere del Comitato europeo per la protezione dei dati e non è vincolante.
+        <span class="link"><a href="https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects_en" rel="noopener noreferrer">Parere sul sito dell'EDPB</a></span></li>
+      <li><span class="etichetta">Linee guida</span> <strong>AgID</strong>: non risultano linee guida sull'AI adottate in via definitiva (da verificare). Bozze su sviluppo e acquisto in consultazione dal 12.3 all'11.4.2026, esito non noto.
+        <span class="link"><a href="https://www.agid.gov.it/it/ambiti-intervento/intelligenza-artificiale" rel="noopener noreferrer">Pagina AgID sull'intelligenza artificiale</a></span></li>
+      <li><span class="etichetta">Dove cercare</span> <strong>Garante privacy</strong>: i provvedimenti sull'AI si cercano sul sito.
+        <span class="link"><a href="https://www.garanteprivacy.it" rel="noopener noreferrer">garanteprivacy.it</a></span></li>
+    </ul>
+
+    <h3>Esempio: la bozza di una determina di affidamento</h3>
+    <p>L'esempio non contiene dati veri: niente ente, CIG, importi, soglie o nomi.</p>
+    <dl class="caso">
+      <dt>Cosa chiedere all'AI<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></dt>
+      <dd>La bozza dello schema della determina, o del capitolato, con i segnaposto tra parentesi quadre al posto dei dati: [oggetto], [importo], [ditta], [CIG]. I dati veri li inserisci tu, fuori dal chatbot.</dd>
+      <dt>Cosa non darle<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></dt>
+      <dd>Dati personali, importi reali, le offerte delle ditte.</dd>
+      <dt>Cosa controllare sempre, una voce alla volta<span class="simbolo" aria-hidden="true">✱</span><span class="vh"> (suggerimento)</span></dt>
+      <dd>I riferimenti normativi e i numeri di articolo. Gli importi e le soglie. I requisiti dell'operatore e le ragioni della scelta. Sono esempi di cosa può andare storto, non un elenco preso dalla norma: l'AI può sbagliare riferimenti normativi e scadenze con la stessa sicurezza con cui scrive il resto, come succede a Renato quando ricontrolla la risposta prima di firmare.</dd>
+      <dt>Chi risponde<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span></dt>
+      <dd>La persona. Per la legge 132/2025, art. 14, mantiene il potere decisionale ed è l'unica responsabile del provvedimento.</dd>
+      <dt>Cosa dice la norma<span class="simbolo" aria-hidden="true">§</span><span class="vh"> (lo dice una norma)</span></dt>
+      <dd class="norma-dd">D.lgs. 36/2023, art. 17, c. 1: la decisione di contrarre viene prima della procedura. Art. 17, c. 2: nell'affidamento diretto l'atto indica oggetto, importo, contraente, ragioni della scelta e requisiti. Art. 15, c. 3: il nome del RUP va indicato nel provvedimento di affidamento diretto.
+        <span class="link"><a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36~art15" rel="noopener noreferrer">Art. 15 su Normattiva</a> · <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2023-03-31;36~art17" rel="noopener noreferrer">Art. 17 su Normattiva</a> · <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132~art14" rel="noopener noreferrer">Legge 132/2025, art. 14</a></span></dd>
+    </dl>
+    <p>Non ho trovato indicazioni ufficiali di ANAC o AgID sull'uso di un chatbot per queste determine. Per ora resta quello che dice l'art. 14 sulla responsabilità della persona. Gli articoli qui sopra sono riassunti: prima di usarli, leggi il testo su Normattiva.</p>
+  </section>
+
+  <section aria-labelledby="pdf-titolo">
+    <h2 id="pdf-titolo">Il foglio da appendere</h2>
+    <p>Due pagine A4. Sulla prima ci sono le cinque regole, con uno spazio vuoto in fondo per scrivere a mano lo strumento autorizzato e il nome del referente. Sulla seconda, in breve, quello che hai letto qui sopra su dati, norme e determina.</p>
+    <p><a class="bottone" href="scheda-come-usiamo-l-ai.pdf" type="application/pdf" download>Scarica il PDF (2 pagine)</a></p>
+  </section>
+
+  <section aria-labelledby="domande-titolo">
+    <h2 id="domande-titolo">Quattro domande da un minuto, più una facoltativa</h2>
+    <p>Si risponde su Google Forms. Qui sotto le vedi in anteprima.</p>
+    <p><a class="bottone" href="https://docs.google.com/forms/d/e/1FAIpQLSdXUHXTmxs5v6GLOo__9lquMa7mf4nJVeU9AWsi6fp__aFIDg/viewform">Rispondi alle domande</a></p>
+
+    <p class="anteprima" id="anteprima-titolo">Le domande</p>
+    <ol class="domande" aria-labelledby="anteprima-titolo">
+      <li>Dove lavori?
+        <span class="opzioni">Ente pubblico · azienda privata · libero professionista · altro</span></li>
+      <li>Usi l'AI per lavoro?
+        <span class="opzioni">No · sì, con un mio abbonamento · sì, con uno strumento fornito da chi mi paga · non so se si può</span></li>
+      <li>Dove lavori ci sono regole scritte sull'AI?
+        <span class="opzioni">Sì · no · non lo so</span></li>
+      <li>Cosa ti servirebbe di più?
+        <span class="opzioni">Più risposte possibili: modello di regole · formazione breve · esempi di testi · sapere cosa non incollare in un chatbot · altro</span></li>
+      <li>Facoltativa: una riga su una situazione che vorresti vedere nel prossimo episodio.
+        <span class="opzioni">Senza nomi di persone o enti.</span></li>
+    </ol>
+
+    <p class="privacy">Non chiedo email né nomi: il modulo raccoglie solo le risposte. Sono anonime e servono a scegliere i prossimi episodi della rubrica. Titolare del trattamento: LABago, a.padula@labago.it. Scrivi senza nomi di persone o di enti: se per errore ne finiscono nella riga libera, scrivimi e li cancello.</p>
+  </section>
+
+  <footer class="piede">
+    <p class="firma">LABago</p>
+    <p>Casi costruiti sul modello di lavori reali. Nessun ente o persona reale è rappresentato.</p>
+
+    <h2>Fonti (consultate il 7 novembre 2026; AgID l'8 novembre 2026)</h2>
+    <ul>
+      <li>AI Act, art. 4, alfabetizzazione del personale: <a href="https://ai-act-service-desk.ec.europa.eu/it/ai-act/article-4" rel="noopener noreferrer">AI Act Service Desk</a>. Testo modificato dal regolamento (UE) 2026/1744: <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32026R1744" rel="noopener noreferrer">EUR-Lex</a></li>
+      <li>Legge 132/2025, art. 14, AI nella pubblica amministrazione: <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132~art14" rel="noopener noreferrer">Normattiva</a></li>
+      <li>AgID, intelligenza artificiale: <a href="https://www.agid.gov.it/it/ambiti-intervento/intelligenza-artificiale" rel="noopener noreferrer">pagina AgID</a></li>
+    </ul>
+    <p>Le fonti di «Cosa sapere prima di usare un chatbot» sono nei link della sezione, consultati l'8 novembre 2026 (per le pagine OpenAI vale la nota nella scheda di ChatGPT).</p>
+    <p>Prima di applicare le regole conviene leggere il testo ufficiale delle norme.</p>
+  </footer>
+
+</main>
+</body>
+</html>
